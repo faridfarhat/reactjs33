@@ -3,8 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-const nextConfig = require("../next.config");
-const basePath = nextConfig.basePath || '';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/reactjs';
 
 const postsDirectory = join(process.cwd(), "_posts");
 
