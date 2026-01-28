@@ -1,7 +1,12 @@
+const { basePath } = require('../../next-react-project3/next.config.mjs');
+
 /**
  * @type {import('next').NextConfig}
  */
+const isProd = process.env.NODE_ENV = 'production';
+
 const nextConfig = {
+  basePath : isProd ? 'reactjs' : '',
   output: 'export',
   distDir: 'dist',
   images: {
