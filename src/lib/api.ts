@@ -2,14 +2,18 @@ import { Post } from "@/interfaces/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
+import config from "../../tailwind.config";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/reactjs';
+const config = require("../next.config.js");
 
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
+
+"${basePath}" -> config.basePath
+
 
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, "");
@@ -24,6 +28,7 @@ export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
+    // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
