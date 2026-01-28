@@ -1,21 +1,15 @@
-const { basePath } = require('../../next-react-project3/next.config.mjs');
-
-/**
- * @type {import('next').NextConfig}
- */
-const shared = require("../../next-react-project3/next.config.mjs");
-const sharedBasePath = shared?.basePath ? String(shared.basePath) : "/reactjs";
-
-const isProd = process.env.NODE_ENV === "production";
+/** @type {import('next').NextConfig} */
+const basePath = process.env.BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '/reactjs';
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  basePath: isProd ? sharedBasePath : "",
-  assetPrefix: isProd ? sharedBasePath : "",
-  output: "export",
-  distDir: "dist",
+  output: 'export',
+  basePath: isProd ? basePath : '',
+  assetPrefix: isProd ? basePath : '',
   images: {
     unoptimized: true,
   },
+  trailingSlash: true,
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
