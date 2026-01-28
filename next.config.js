@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '/reactjs';
-const isProd = process.env.NODE_ENV === 'production';
+const basePath = process.env.BASE_PATH || '/reactjs33'; // or '/reactjs' if that's your repo name
 
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? basePath : '',
-  assetPrefix: isProd ? basePath : '',
+  basePath: basePath,
+  assetPrefix: basePath,
+  distDir: 'dist',
   images: {
     unoptimized: true,
   },
