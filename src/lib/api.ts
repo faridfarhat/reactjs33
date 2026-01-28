@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import config from "../../tailwind.config";
 
-const config = require("../next.config.js");
+
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -12,7 +12,7 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-"${basePath}" -> config.basePath
+
 
 
 export function getPostBySlug(slug: string) {
